@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Abid Hossain | AI Architect</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@900&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #000205;
+            --cyan: #5df9ff;
+            --blue: #3d72ff;
+            --glass: rgba(255, 255, 255, 0.02);
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: crosshair;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #f1f5f9;
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Live Cinematic Wallpaper --- */
+        .wallpaper-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #0a192f 0%, #000205 100%);
+        }
+
+        .ambient-light {
+            position: absolute;
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, rgba(93, 249, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: drift 20s infinite alternate ease-in-out;
+        }
+
+        @keyframes drift {
+            from { transform: translate(-10%, -10%); }
+            to { transform: translate(20%, 20%); }
+        }
+
+        /* --- Hero Section: Single Line Bold --- */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .name-container {
+            position: relative;
+            padding: 20px;
+        }
+
+        .hero-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.5rem, 12vw, 8rem);
+            font-weight: 900;
+            white-space: nowrap;
+            letter-spacing: -4px;
+            background: linear-gradient(90deg, #fff 10%, var(--cyan) 50%, var(--blue) 90%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* Ultra-Clear Glow */
+            filter: drop-shadow(0 0 30px rgba(93, 249, 255, 0.2));
+            line-height: 1;
+        }
+
+        .hero-subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            color: var(--cyan);
+            margin-top: 25px;
+            opacity: 0.6;
+        }
+
+        /* --- Aesthetic Floating Cards --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            background: var(--glass);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            padding: 5rem;
+            margin-bottom: 8rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Neon Corner Accent */
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--cyan), transparent 70%);
+            opacity: 0.2;
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        h2 i { color: var(--cyan); font-size: 1.8rem; }
+
+        /* --- Skill Grid: Contrast & Click Fix --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 2.5rem;
+            border-radius: 30px;
+            border: 1px solid var(--border);
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            position: relative;
+        }
+
+        .skill-card:hover {
+            background: var(--cyan);
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--cyan);
+            box-shadow: 0 30px 60px rgba(93, 249, 255, 0.15);
+        }
+
+        .skill-card h4 {
+            color: var(--cyan);
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            transition: 0.3s;
+        }
+
+        .skill-card p {
+            color: #94a3b8;
+            font-size: 1rem;
+            line-height: 1.6;
+            transition: 0.3s;
+        }
+
+        /* Text Clarity on Hover */
+        .skill-card:hover h4, 
+        .skill-card:hover p {
+            color: #000b1a !important;
+            font-weight: 600;
+        }
+
+        /* --- Footer Section --- */
+        footer {
+            text-align: center;
+            padding: 10rem 0 5rem;
+        }
+
+        .github-btn {
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #fff;
+            padding: 22px 60px;
+            border-radius: 100px;
+            background: linear-gradient(45deg, #000, #1e3a8a);
+            border: 1px solid var(--cyan);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            transition: 0.4s;
+            display: inline-block;
+            letter-spacing: 2px;
+        }
+
+        .github-btn:hover {
+            transform: translateY(-5px);
+            background: var(--cyan);
+            color: #000;
+            box-shadow: 0 0 50px var(--cyan);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-name { font-size: 3rem; white-space: normal; letter-spacing: -2px; }
+            section { padding: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wallpaper-container">
+        <div class="ambient-light" style="top: -10%; left: -10%;"></div>
+        <div class="ambient-light" style="bottom: -10%; right: -10%; animation-delay: -5s; background: radial-gradient(circle, rgba(61, 114, 255, 0.1) 0%, transparent 70%);"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="name-container">
+                <h1 class="hero-name">MD. ABID HOSSAIN</h1>
+                <p class="hero-subtitle">Software & AI Engineering</p>
+            </div>
+        </header>
+
+        <section id="about">
+            <h2><i class="fas fa-microchip"></i> The Vision</h2>
+            <p style="font-size: 1.4rem; font-weight: 300; line-height: 1.8; color: #cbd5e1;">Building the next generation of intelligent systems. Specialized in high-performance Software Engineering, Machine Learning architectures, and Cyber-Security research. I transform raw data into autonomous logic.</p>
+        </section>
+
+        <section id="arsenal">
+            <h2><i class="fas fa-layer-group"></i> Technical Arsenal</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>AI Intelligence</h4>
+                    <p>Logistic Regression, PCA, SVM, Neural Networks, and Predictive EDA.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Core Engineering</h4>
+                    <p>Scalable Java (OOP), C++, and Python for data-intensive architectures.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Network Security</h4>
+                    <p>Researching threat prevention protocols and secure infrastructure design.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Advanced Analysis</h4>
+                    <p>Quantitative technical analysis for financial instruments like XAUUSD.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Visual Systems</h4>
+                    <p>Computer Graphics rendering (BGI) and low-level GUI development.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Modern Tech Stack</h4>
+                    <p>LLM Integration, System Design, and Cloud-native Development.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="impact">
+            <h2><i class="fas fa-terminal"></i> Research Impact</h2>
+            <div style="border-left: 3px solid var(--cyan); padding-left: 30px; margin-bottom: 40px;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 10px;">Cyber Security Prevention</h3>
+                <p>Architecting technologies to defend against modern network security threats.</p>
+            </div>
+            <div style="border-left: 3px solid var(--blue); padding-left: 30px;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 10px;">Iris Classification Engine</h3>
+                <p>Developing high-precision ML models using SVM and statistical optimization.</p>
+            </div>
+        </section>
+
+        <footer>
+            <a href="https://github.com/Aabid181" class="github-btn">ACCESS GITHUB ARCHIVE</a>
+            <p style="margin-top: 50px; opacity: 0.3; letter-spacing: 6px; font-family: 'JetBrains Mono'; font-size: 0.8rem;">EST. 2026 | MD. ABID HOSSAIN</p>
+        </footer>
+    </div>
+
+</body>
+</html>
